@@ -1,0 +1,59 @@
+/* Sistema de diseño — derivado del logo de Clínica Ocaña.
+   Azul marino (texto del logo), azul, verde azulado y un verde de acento en el degradado de la cruz.
+   Un solo tema claro a propósito: el logo está pensado sobre fondo claro. */
+:root {
+  /* Marca */
+  --navy-950: #082c4c;
+  --navy-900: #0c3c64;
+  --blue-700: #144c84;
+  --blue-600: #1a5fa6;
+  --blue-500: #2378c0;
+  --cyan-500: #229cb5;
+  --teal-500: #249c9c;
+  --green-400: #2fbf9c;
+  /* Energía (acciones del paciente y logros): el coral de las pesas de la foto. --coral-600 cumple 4,5:1 con texto blanco */
+  --coral-50: #fdeeeb;
+  --coral-100: #fadcd6;
+  --coral-500: #ee6c5a;
+  --coral-600: #cf3f2a;
+  --coral-700: #b53320;
+  --bg-warm: #f6f3ee;
+  --grad-brand: linear-gradient(135deg, #144c84 0%, #1f86b3 48%, #26b39a 100%);
+
+  /* Neutros con matiz azul (no grises puros) */
+  --bg: #f3f7fa;
+  --surface: #ffffff;
+  --surface-2: #eaf1f6;
+  --line: #dbe5ec;
+  --line-strong: #c3d2dd;
+  --ink: #0c2a44;
+  --ink-2: #3f5468;
+  --ink-3: #6b7f91;
+
+  /* Estado (separado del acento de marca) */
+  --ok: #2b8f57;
+  --ok-bg: #e4f5ea;
+  --warn: #a86a10;
+  --warn-bg: #fcf0d9;
+  --risk: #c2453d;
+  --risk-bg: #fce8e6;
+  --info: #1a5fa6;
+  --info-bg: #e3eefa;
+
+  /* Tipografía */
+  --font-display: "Montserrat", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+
+  /* Forma */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --shadow-sm: 0 1px 2px rgba(12, 42, 68, 0.06);
+  --shadow-md: 0 1px 2px rgba(12, 42, 68, 0.05), 0 10px 30px rgba(12, 42, 68, 0.07);
+
+  --gutter: 24px;
+  --maxw: 1200px;
+}
+@media (max-width: 640px) {
+  :root { --gutter: 16px; }
+}

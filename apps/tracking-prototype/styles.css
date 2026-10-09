@@ -1,0 +1,201 @@
+:root {
+  --bg: #0b1220;
+  --panel: #121a2b;
+  --panel-border: #223049;
+  --text: #e7edf7;
+  --muted: #93a2bd;
+  --primary: #4ade80;
+  --primary-dark: #22c55e;
+  --accent: #22d3ee;
+  --danger: #f87171;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at top, #16213a 0%, var(--bg) 60%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.topbar h1 { margin: 0; font-size: 1.4rem; }
+.subtitle { margin: 4px 0 0; color: var(--muted); font-size: 0.9rem; }
+
+.badge {
+  background: rgba(34, 211, 238, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 24px;
+  padding: 24px 32px 48px;
+}
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.panel h2 { margin-top: 0; font-size: 1.05rem; }
+.panel h3 { font-size: 0.9rem; color: var(--muted); margin-bottom: 8px; }
+
+label {
+  display: block;
+  margin: 14px 0 6px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+select, input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--panel-border);
+  background: #0d1626;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.btn-row { display: flex; gap: 10px; margin-top: 14px; }
+
+.btn {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--panel-border);
+  background: #17233b;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: transform 0.05s ease, background 0.2s ease;
+}
+.btn:hover { background: #1d2c4a; }
+.btn:active { transform: scale(0.98); }
+
+.btn.primary { background: var(--primary); color: #06240f; border-color: var(--primary-dark); font-weight: 600; }
+.btn.primary:hover { background: var(--primary-dark); }
+
+.btn.secondary { background: rgba(34, 211, 238, 0.12); color: var(--accent); border-color: rgba(34, 211, 238, 0.35); }
+.btn.ghost { background: transparent; }
+
+.status {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  min-height: 2.4em;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.metric {
+  background: #0d1626;
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+
+.metric-label { display: block; font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.metric-value { display: block; font-size: 1.9rem; font-weight: 700; margin-top: 4px; }
+
+.state-badge {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: rgba(147, 162, 189, 0.15);
+  color: var(--muted);
+}
+.state-badge[data-state="waiting_rest"] {
+  background: rgba(74, 222, 128, 0.15);
+  color: var(--primary);
+}
+
+.compensation-banner {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(248, 113, 113, 0.14);
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  color: var(--danger);
+  font-size: 0.85rem;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.history {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 160px;
+  overflow-y: auto;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.history li {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.video-panel { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 4 / 3;
+  background: #000;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--panel-border);
+}
+
+video, canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(-1); /* efecto espejo: más natural para el paciente */
+}
+
+.hint {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-align: center;
+  max-width: 640px;
+}

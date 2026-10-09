@@ -1,0 +1,42 @@
+{
+ "session_id": 132,
+ "reps": 8,
+ "analysis_summary": {
+  "count": 8,
+  "expected": 30,
+  "interrupted": 0,
+  "reached_target": 8,
+  "rom": {
+   "best": 94.4,
+   "mean": 93.8,
+   "worst": 93.3,
+   "first_third": 93.9,
+   "last_third": 93.9,
+   "drop_pct": -0.1
+  },
+  "tempo": {
+   "up_s": 1.1,
+   "hold_s": 0.67,
+   "down_s": 0.99,
+   "cycle_s": 3.6,
+   "cycle_cv_pct": 0.3
+  },
+  "flagged_reps": 0,
+  "flagged_pct": 0
+ },
+ "suggestions": [
+  {
+   "code": "incomplete",
+   "severity": "info",
+   "data": {
+    "done": 8,
+    "expected": 30
+   }
+  },
+  {
+   "code": "well_done",
+   "severity": "info",
+   "data": {}
+  }
+ ]
+}

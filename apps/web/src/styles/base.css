@@ -1,0 +1,90 @@
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; max-width: 100%; }
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; margin: 0; color: var(--navy-900); text-wrap: balance; letter-spacing: -0.01em; }
+p { margin: 0; }
+a { color: var(--blue-600); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button { font: inherit; }
+:focus-visible { outline: 3px solid var(--cyan-500); outline-offset: 2px; border-radius: 6px; }
+.num { font-variant-numeric: tabular-nums; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* Etiqueta en mayúsculas espaciadas, como "CLÍNICA" del logo */
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal-500);
+}
+
+/* Botones */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 0 20px;
+  border: 1.5px solid transparent; border-radius: 999px;
+  font-family: var(--font-display); font-weight: 600; font-size: 14px; letter-spacing: 0.01em;
+  cursor: pointer; text-decoration: none !important;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--navy-900); color: #fff; box-shadow: 0 6px 16px rgba(12, 60, 100, 0.25); }
+.btn-primary:hover { background: var(--blue-700); }
+.btn-ghost { background: transparent; color: var(--navy-900); border-color: var(--line-strong); }
+.btn-ghost:hover { background: var(--surface); border-color: var(--blue-600); }
+.btn-danger { background: var(--risk); color: #fff; }
+.btn-sm { min-height: 36px; padding: 0 14px; font-size: 13px; }
+.btn[disabled] { opacity: 0.5; cursor: not-allowed; box-shadow: none; }
+
+/* Tarjetas */
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); box-shadow: var(--shadow-sm); }
+.card-pad { padding: 20px 22px; }
+.card-title { font-size: 15px; font-weight: 700; }
+.card-sub { font-size: 13px; color: var(--ink-3); margin-top: 2px; }
+
+/* Píldoras de estado: color + punto + texto (nunca solo color) */
+.pill { display: inline-flex; align-items: center; gap: 7px; padding: 3px 11px 3px 9px; border-radius: 999px; font-size: 12.5px; font-weight: 600; white-space: nowrap; }
+.pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.pill-ok { background: var(--ok-bg); color: var(--ok); }
+.pill-warn { background: var(--warn-bg); color: var(--warn); }
+.pill-risk { background: var(--risk-bg); color: var(--risk); }
+.pill-info { background: var(--info-bg); color: var(--info); }
+.pill-mute { background: var(--surface-2); color: var(--ink-2); }
+
+/* Tabla */
+.table-wrap { overflow-x: auto; position: relative; } /* position: que el texto .sr-only (absoluto) de las cabeceras quede DENTRO del contenedor con scroll y no ensanche la página */
+table.tbl { width: 100%; border-collapse: collapse; font-size: 14px; }
+.tbl th { text-align: left; font-family: var(--font-display); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; padding: 10px 16px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.tbl td { padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.tbl tbody tr:last-child td { border-bottom: 0; }
+.tbl tbody tr:hover { background: #f7fafc; }
+
+/* Barra de progreso fina */
+.meter { height: 8px; border-radius: 999px; background: var(--surface-2); overflow: hidden; min-width: 84px; }
+.meter > span { display: block; height: 100%; border-radius: inherit; background: var(--grad-brand); }
+.meter.is-warn > span { background: var(--warn); }
+.meter.is-risk > span { background: var(--risk); }
+
+/* Estados de carga y error */
+.skeleton { background: linear-gradient(90deg, var(--surface-2) 25%, #f4f8fb 50%, var(--surface-2) 75%); background-size: 200% 100%; animation: shimmer 1.3s infinite; border-radius: var(--r-sm); }
+@keyframes shimmer { to { background-position: -200% 0; } }
+.notice { padding: 14px 18px; border-radius: var(--r-md); font-size: 14px; }
+.notice-error { background: var(--risk-bg); color: #7d2620; border: 1px solid #f2c4bf; }
+.notice-info { background: var(--info-bg); color: #163f6d; border: 1px solid #c3d9f1; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

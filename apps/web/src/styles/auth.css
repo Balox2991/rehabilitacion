@@ -1,0 +1,76 @@
+/* =====================================================================================
+   Pantalla de ingreso.
+   Composición (maqueta del autor): foto a la izquierda que se desvanece hacia el fondo claro; a la derecha, una tarjeta
+   flotante con el logo arriba y las credenciales. En el celular la foto pasa a ser una franja superior y la tarjeta sube
+   sobre ella.
+   ===================================================================================== */
+
+.auth { min-height: 100vh; min-height: 100dvh; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(380px, 0.85fr); background: var(--auth-bg); position: relative; isolation: isolate; }
+.auth { --auth-bg: #f4f1ec; }
+
+/* ---------- Foto ---------- */
+.auth-photo { position: relative; overflow: hidden; display: flex; align-items: flex-end; min-height: 100%; }
+.auth-photo-img { position: absolute; inset: 0; z-index: -2; background: url("/brand/rehab-hero.jpg") 38% 50% / cover no-repeat; }
+/* Velo: azul de la marca abajo (para leer el texto) y desvanecido hacia el fondo en el borde derecho */
+.auth-photo::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(244, 241, 236, 0) 55%, rgba(244, 241, 236, 0.85) 92%, var(--auth-bg) 100%),
+    linear-gradient(0deg, rgba(8, 44, 76, 0.92) 0%, rgba(8, 44, 76, 0.55) 38%, rgba(8, 44, 76, 0.12) 70%, rgba(8, 44, 76, 0) 100%);
+}
+/* Marca de agua: la cruz del logo, grande y translúcida sobre la foto */
+.auth-photo-mark { position: absolute; z-index: -1; left: 50%; top: 40%; width: min(34vw, 380px); aspect-ratio: 487 / 453; transform: translate(-60%, -50%); background: #fff; opacity: 0.2; -webkit-mask: url("/brand/marca.png") center / contain no-repeat; mask: url("/brand/marca.png") center / contain no-repeat; pointer-events: none; }
+.auth-photo-copy { position: relative; padding: clamp(28px, 5vw, 64px); padding-right: clamp(60px, 9vw, 130px); max-width: 720px; color: #fff; }
+.auth-kicker { font-family: var(--font-display); font-size: 12.5px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #9fe0d5; }
+.auth-photo-copy h1 { margin-top: 10px; color: #fff; font-size: clamp(26px, 3.4vw, 44px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; max-width: 18ch; }
+.auth-points { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 12px; }
+.auth-points li { display: flex; align-items: center; gap: 12px; font-size: 15.5px; color: #e6f0f8; }
+.auth-points li span { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(255, 255, 255, 0.16); backdrop-filter: blur(6px); color: #fff; flex: none; }
+
+/* ---------- Lado del formulario ---------- */
+.auth-side { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 40px clamp(20px, 4vw, 56px); overflow: hidden; }
+/* Manchas de color suaves detrás de la tarjeta (dan profundidad sin recargar) */
+.auth-side::before, .auth-side::after { content: ""; position: absolute; z-index: -1; border-radius: 50%; filter: blur(70px); pointer-events: none; }
+.auth-side::before { width: 360px; height: 360px; right: -90px; top: -60px; background: rgba(34, 156, 181, 0.32); }
+.auth-side::after { width: 320px; height: 320px; left: -40px; bottom: -80px; background: rgba(238, 108, 90, 0.2); }
+
+.auth-card { width: 100%; max-width: 440px; padding: 30px 34px 28px; background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 26px; box-shadow: 0 2px 4px rgba(12, 42, 68, 0.04), 0 24px 60px rgba(12, 42, 68, 0.16); display: grid; gap: 22px; }
+.auth-logo { width: 150px; height: auto; justify-self: center; }
+.auth-head { text-align: center; display: grid; gap: 6px; }
+.auth-head h2 { font-size: 24px; font-weight: 800; }
+.auth-head p { color: var(--ink-2); font-size: 15px; }
+.auth-form { display: grid; gap: 16px; }
+.auth-field { display: grid; gap: 6px; }
+.auth-field label { font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
+.auth-field input { width: 100%; min-height: 50px; padding: 0 16px; border: 1.5px solid var(--line-strong); border-radius: 14px; background: #fff; font: inherit; font-size: 16px; color: var(--ink); transition: border-color 0.12s, box-shadow 0.12s; }
+.auth-field input::placeholder { color: #93a4b3; }
+.auth-field input:hover { border-color: #a9bccb; }
+.auth-field input:focus { outline: none; border-color: var(--blue-600); box-shadow: 0 0 0 4px rgba(26, 95, 166, 0.16); }
+.auth-field.has-error input { border-color: var(--risk); }
+.auth-field.has-error input:focus { box-shadow: 0 0 0 4px rgba(194, 69, 61, 0.16); }
+.auth-error { font-size: 13px; color: var(--risk); font-weight: 500; }
+.auth-password { position: relative; }
+.auth-password input { padding-right: 52px; }
+.auth-eye { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; display: grid; place-items: center; border: 0; background: none; border-radius: 12px; color: var(--ink-3); cursor: pointer; }
+.auth-eye:hover { color: var(--navy-900); background: var(--surface-2); }
+.auth-submit { margin-top: 4px; }
+.auth-help { text-align: center; font-size: 13.5px; color: var(--ink-3); }
+.auth-demo { text-align: center; display: grid; gap: 2px; padding-top: 16px; border-top: 1px solid var(--line); }
+.auth-demo a { font-weight: 600; font-size: 14.5px; }
+.auth-demo small { color: var(--ink-3); font-size: 12px; }
+.auth-foot { font-size: 12px; color: var(--ink-3); text-align: center; }
+
+/* ---------- Pantallas estrechas ---------- */
+@media (max-width: 900px) {
+  .auth { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; }
+  .auth-photo { min-height: 250px; align-items: flex-end; }
+  .auth-photo-img { background-position: 40% 40%; }
+  .auth-photo::after { background: linear-gradient(0deg, rgba(8, 44, 76, 0.88) 0%, rgba(8, 44, 76, 0.4) 100%); }
+  .auth-photo-mark { display: none; }
+  .auth-photo-copy { padding: 24px 20px 70px; max-width: none; }
+  .auth-photo-copy h1 { font-size: 22px; max-width: none; }
+  .auth-points { display: none; } /* en el celular la foto solo da la bienvenida; el formulario es lo importante */
+  .auth-side { padding: 0 16px 28px; margin-top: -56px; justify-content: flex-start; }
+  .auth-card { padding: 24px 20px 22px; }
+}
+@media (max-width: 380px) { .auth-card { padding: 20px 16px; } .auth-logo { width: 120px; } }

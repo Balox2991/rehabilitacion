@@ -1,0 +1,332 @@
+{
+  "generado": "evaluate.mjs",
+  "sesiones_por_condicion": 200,
+  "rest": 175,
+  "target": 90,
+  "resultados": [
+    {
+      "id": "A",
+      "name": "Ideal (sin ruido)",
+      "gen": {
+        "noiseSd": 0
+      },
+      "sesiones": 200,
+      "conteo": {
+        "base": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        },
+        "vivo": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        },
+        "posterior": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        }
+      },
+      "rom": {
+        "vivo": {
+          "n": 200,
+          "error_medio_grados": 0
+        },
+        "posterior": {
+          "n": 200,
+          "error_medio_grados": 0
+        }
+      }
+    },
+    {
+      "id": "B",
+      "name": "Ruido σ = 2°",
+      "gen": {
+        "noiseSd": 2
+      },
+      "sesiones": 200,
+      "conteo": {
+        "base": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        },
+        "vivo": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        },
+        "posterior": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        }
+      },
+      "rom": {
+        "vivo": {
+          "n": 200,
+          "error_medio_grados": 0.96
+        },
+        "posterior": {
+          "n": 200,
+          "error_medio_grados": 0.51
+        }
+      }
+    },
+    {
+      "id": "C",
+      "name": "Ruido σ = 3° (error típico de cámara)",
+      "gen": {
+        "noiseSd": 3
+      },
+      "sesiones": 200,
+      "conteo": {
+        "base": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        },
+        "vivo": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        },
+        "posterior": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        }
+      },
+      "rom": {
+        "vivo": {
+          "n": 200,
+          "error_medio_grados": 1.52
+        },
+        "posterior": {
+          "n": 200,
+          "error_medio_grados": 0.72
+        }
+      }
+    },
+    {
+      "id": "D",
+      "name": "Ruido σ = 5° (cámara en mal ángulo)",
+      "gen": {
+        "noiseSd": 5
+      },
+      "sesiones": 200,
+      "conteo": {
+        "base": {
+          "exacto_pct": 69.5,
+          "error_abs_medio": 0.38,
+          "sesgo": 0.38
+        },
+        "vivo": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        },
+        "posterior": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        }
+      },
+      "rom": {
+        "vivo": {
+          "n": 200,
+          "error_medio_grados": 2.7
+        },
+        "posterior": {
+          "n": 200,
+          "error_medio_grados": 1.52
+        }
+      }
+    },
+    {
+      "id": "E",
+      "name": "σ = 3° + picos aislados de 40° (3 % de cuadros)",
+      "gen": {
+        "noiseSd": 3,
+        "spikeProb": 0.03,
+        "spikeDeg": 40
+      },
+      "sesiones": 200,
+      "conteo": {
+        "base": {
+          "exacto_pct": 2,
+          "error_abs_medio": 4.72,
+          "sesgo": 4.72
+        },
+        "vivo": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        },
+        "posterior": {
+          "exacto_pct": 99,
+          "error_abs_medio": 0.02,
+          "sesgo": 0.02
+        }
+      },
+      "rom": {
+        "vivo": {
+          "n": 200,
+          "error_medio_grados": 1.62
+        },
+        "posterior": {
+          "n": 198,
+          "error_medio_grados": 0.8
+        }
+      }
+    },
+    {
+      "id": "F",
+      "name": "σ = 3° + 15 % de cuadros perdidos + tiempos irregulares",
+      "gen": {
+        "noiseSd": 3,
+        "dropProb": 0.15,
+        "jitterMs": 8
+      },
+      "sesiones": 200,
+      "conteo": {
+        "base": {
+          "exacto_pct": 99.5,
+          "error_abs_medio": 0.01,
+          "sesgo": 0.01
+        },
+        "vivo": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        },
+        "posterior": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        }
+      },
+      "rom": {
+        "vivo": {
+          "n": 200,
+          "error_medio_grados": 1.4
+        },
+        "posterior": {
+          "n": 200,
+          "error_medio_grados": 0.78
+        }
+      }
+    },
+    {
+      "id": "G",
+      "name": "Recorrido limitado (llega a 130° de 90°), σ = 3°",
+      "gen": {
+        "noiseSd": 3,
+        "peakAngle": 130
+      },
+      "sesiones": 200,
+      "conteo": {
+        "base": {
+          "exacto_pct": 79,
+          "error_abs_medio": 0.27,
+          "sesgo": 0.27
+        },
+        "vivo": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        },
+        "posterior": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        }
+      },
+      "rom": {
+        "vivo": {
+          "n": 200,
+          "error_medio_grados": 1.5
+        },
+        "posterior": {
+          "n": 200,
+          "error_medio_grados": 0.96
+        }
+      }
+    },
+    {
+      "id": "H",
+      "name": "Movimiento rápido (0,5 s por fase), σ = 3°",
+      "gen": {
+        "noiseSd": 3,
+        "moveMs": 500,
+        "holdMs": 200,
+        "pauseMs": 300
+      },
+      "sesiones": 200,
+      "conteo": {
+        "base": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        },
+        "vivo": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        },
+        "posterior": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        }
+      },
+      "rom": {
+        "vivo": {
+          "n": 200,
+          "error_medio_grados": 1.22
+        },
+        "posterior": {
+          "n": 200,
+          "error_medio_grados": 1.35
+        }
+      }
+    },
+    {
+      "id": "I",
+      "name": "Fatiga (pierde 30 % de recorrido al final), σ = 3°",
+      "gen": {
+        "noiseSd": 3,
+        "fatigue": 0.3
+      },
+      "sesiones": 200,
+      "conteo": {
+        "base": {
+          "exacto_pct": 99,
+          "error_abs_medio": 0.01,
+          "sesgo": 0.01
+        },
+        "vivo": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        },
+        "posterior": {
+          "exacto_pct": 100,
+          "error_abs_medio": 0,
+          "sesgo": 0
+        }
+      },
+      "rom": {
+        "vivo": {
+          "n": 200,
+          "error_medio_grados": 1.51
+        },
+        "posterior": {
+          "n": 200,
+          "error_medio_grados": 0.75
+        }
+      }
+    }
+  ]
+}

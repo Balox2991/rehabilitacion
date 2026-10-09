@@ -1,0 +1,150 @@
+// Contenido educativo general de ejercicios de rehabilitación. NO es una prescripción: la indicación, la
+// dosis y las restricciones (carga de peso, rangos permitidos, cuándo empezar) las define el equipo tratante
+// para cada paciente. Todo el contenido está pendiente de validación por un fisioterapeuta antes de usarse
+// con pacientes reales (ver docs/FASE-3-WEB.md).
+//
+// `demo`: clave de la demostración animada del frontend (src/demos/). Solo se anuncia como animada si existe.
+// `evidence`: códigos de src/content/evidence.js que dan contexto clínico o técnico al ejercicio.
+
+export const ALERT_STOP = "Detente y avisa a tu fisioterapeuta si aparece dolor agudo, mareo, hormigueo o una hinchazón nueva.";
+export const NO_FORCE = "No fuerces ni rebotes para llegar más lejos: el movimiento debe ser lento y controlado.";
+
+export const LIBRARY = [
+  {
+    code: "knee_flexion",
+    title: "Flexión de rodilla sentado",
+    body_area: "rodilla",
+    category: "movilidad",
+    phase: "movilidad",
+    difficulty: 1,
+    duration_min: 5,
+    tracked_exercise_code: "knee_flexion",
+    demo: "knee_flexion",
+    summary: "Recupera el movimiento de doblar la rodilla, de forma suave y controlada. Es uno de los ejercicios que mide la cámara.",
+    steps: [
+      "Siéntate en una silla firme, de perfil a la cámara, con la espalda apoyada. Deben verse la cadera, la rodilla y el tobillo.",
+      "Empieza con la rodilla estirada al frente y el talón apoyado en el piso o apenas elevado.",
+      "Desliza el talón hacia atrás, doblando la rodilla despacio, hasta la meta que te indicó tu fisioterapeuta o hasta sentir tensión sin dolor agudo.",
+      "Sostén 2 a 3 segundos en el punto más doblado.",
+      "Vuelve a estirar la pierna sin dejarla caer y repite.",
+    ],
+    cautions: [
+      NO_FORCE,
+      "Mantén el tronco quieto: si te inclinas hacia atrás estás compensando y la medición deja de ser fiable.",
+      ALERT_STOP,
+    ],
+    evidence: ["russo2026", "bazarevsky2020", "barzegar2024", "cottrell2017"],
+  },
+  {
+    code: "straight_leg_raise",
+    title: "Elevación de pierna recta",
+    body_area: "rodilla",
+    category: "fortalecimiento",
+    phase: "movilidad",
+    difficulty: 2,
+    duration_min: 6,
+    tracked_exercise_code: "straight_leg_raise",
+    demo: "straight_leg_raise",
+    summary: "Fortalece el muslo con la rodilla estirada, apoyado en la cama o en el suelo.",
+    steps: [
+      "Acuéstate boca arriba con la pierna sana doblada y el pie apoyado. La pierna a trabajar va estirada.",
+      "Aprieta el muslo para mantener la rodilla bien estirada.",
+      "Eleva la pierna hasta la altura de la rodilla de la otra pierna, unos 30 cm.",
+      "Sostén 2 segundos y baja despacio, sin dejarla caer.",
+    ],
+    cautions: [
+      "Si la rodilla se dobla al subir, baja la altura o detente.",
+      "Si notas dolor en la parte baja de la espalda, detente.",
+      "Hazlo solo si tu equipo autorizó el fortalecimiento.",
+    ],
+    evidence: [],
+  },
+  {
+    code: "elbow_flexion",
+    title: "Flexión y extensión de codo",
+    body_area: "codo",
+    category: "movilidad",
+    phase: "movilidad",
+    difficulty: 1,
+    duration_min: 5,
+    tracked_exercise_code: "elbow_flexion",
+    demo: "elbow_flexion",
+    summary: "Recupera el movimiento de doblar y estirar el codo. Es uno de los ejercicios que mide la cámara.",
+    steps: [
+      "Siéntate de perfil a la cámara con el brazo visible: deben verse el hombro, el codo y la muñeca.",
+      "Deja el brazo pegado al cuerpo o apoyado en una mesa, con el codo casi estirado.",
+      "Dobla el codo llevando la mano hacia el hombro, hasta tu meta o hasta sentir tensión sin dolor agudo.",
+      "Sostén 2 segundos y estira despacio hasta donde te sea cómodo.",
+    ],
+    cautions: [
+      "Mantén el hombro quieto: si lo subes o inclinas el tronco, la medición no es fiable.",
+      "No ayudes con la otra mano ni cargues peso si no te lo indicaron.",
+      ALERT_STOP,
+    ],
+    evidence: ["dasilva2025", "barzegar2024", "bazarevsky2020"],
+  },
+  {
+    code: "shoulder_flexion",
+    title: "Elevación frontal del brazo",
+    body_area: "hombro",
+    category: "movilidad",
+    phase: "movilidad",
+    difficulty: 2,
+    duration_min: 5,
+    tracked_exercise_code: "shoulder_flexion",
+    demo: "shoulder_flexion",
+    summary: "Levanta el brazo hacia adelante y arriba. Es uno de los ejercicios que mide la cámara.",
+    steps: [
+      "Colócate de pie o sentado, de perfil a la cámara: deben verse la cadera, el hombro y el codo.",
+      "Deja el brazo relajado al costado.",
+      "Eleva el brazo hacia el frente hasta tu meta o hasta sentir tensión, con la ayuda de la otra mano si tu fisioterapeuta lo indicó.",
+      "Sostén 2 segundos y baja despacio.",
+    ],
+    cautions: [
+      "No encojas el hombro hacia la oreja ni te inclines hacia atrás para subir más.",
+      "No cargues peso si no te lo indicaron.",
+      ALERT_STOP,
+    ],
+    evidence: ["challoumas2025", "kusunose2023", "barzegar2024"],
+  },
+  {
+    code: "edu_pain_swelling",
+    title: "Dolor, hinchazón y señales de alerta",
+    body_area: "general",
+    category: "educacion",
+    phase: "proteccion",
+    difficulty: 1,
+    duration_min: 3,
+    tracked_exercise_code: null,
+    demo: null,
+    summary: "Cómo distinguir una molestia esperable de una señal que exige avisar a tu equipo de salud.",
+    steps: [
+      "Una molestia leve o cierta hinchazón al retomar el movimiento es frecuente y suele mejorar con el descanso.",
+      "Un dolor que aumenta durante el ejercicio, o que no cede después de descansar, es motivo para parar y avisar.",
+      "Avisa de inmediato, o busca atención urgente, si notas fiebre; enrojecimiento, calor o secreción en la herida; hinchazón que aumenta o dolor en la pantorrilla; hormigueo, pérdida de sensibilidad o cambio de color en los dedos; o dolor intenso que no mejora con lo indicado.",
+      "Anota qué sentiste después de cada sesión y coméntalo con tu fisioterapeuta.",
+    ],
+    cautions: ["Este contenido es informativo y no reemplaza la valoración de tu equipo de salud."],
+    evidence: [],
+  },
+  {
+    code: "edu_home_program",
+    title: "Cómo aprovechar tus ejercicios en casa",
+    body_area: "general",
+    category: "educacion",
+    phase: "proteccion",
+    difficulty: 1,
+    duration_min: 3,
+    tracked_exercise_code: null,
+    demo: null,
+    summary: "Hábitos sencillos para mantener la constancia y para que la cámara mida bien.",
+    steps: [
+      "Elige un momento fijo del día. La constancia pesa más que la intensidad: es mejor poco y seguido.",
+      "Prepara el espacio: buena luz, una silla firme, ropa ajustada y la cámara a la altura de la cadera, con el cuerpo completo a 2 o 3 metros.",
+      "Calibra tu postura de reposo al empezar y no te alejes de la cámara durante la sesión.",
+      "Si un día no puedes o algo te duele, avísale a tu fisioterapeuta en lugar de abandonar el plan.",
+    ],
+    cautions: ["El dolor durante el ejercicio es una razón para parar y avisar, no para aguantar."],
+    evidence: ["jack2010", "barzegar2024"],
+  },
+];

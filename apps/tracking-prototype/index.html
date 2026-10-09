@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fase 1 · Prototipo de Tracking de Movimiento</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Prototipo de Tracking de Movimiento</h1>
+      <p class="subtitle">Telerehabilitación asistida por IA — Fase 1 (goniómetro digital)</p>
+    </div>
+    <span class="badge">Prototipo aislado — sin backend</span>
+  </header>
+
+  <main class="layout">
+    <section class="panel controls">
+      <h2>Configuración del ejercicio</h2>
+
+      <label for="exercise">Ejercicio / articulación</label>
+      <select id="exercise"></select>
+
+      <label for="side">Lado</label>
+      <select id="side">
+        <option value="left">Izquierdo</option>
+        <option value="right">Derecho</option>
+      </select>
+
+      <label for="targetAngle">Ángulo objetivo (ROM), en grados</label>
+      <input id="targetAngle" type="number" min="0" max="180" step="1" />
+
+      <div class="btn-row">
+        <button id="startBtn" class="btn primary">Iniciar cámara</button>
+        <button id="stopBtn" class="btn">Detener</button>
+      </div>
+      <div class="btn-row">
+        <button id="calibrateBtn" class="btn secondary">Calibrar postura de reposo</button>
+        <button id="resetBtn" class="btn ghost">Reiniciar sesión</button>
+      </div>
+
+      <p class="status" id="status">Selecciona un ejercicio e inicia la cámara.</p>
+
+      <div class="metrics">
+        <div class="metric">
+          <span class="metric-label">Ángulo actual</span>
+          <span class="metric-value" id="angleReadout">—</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Repeticiones</span>
+          <span class="metric-value" id="repCount">0</span>
+        </div>
+      </div>
+      <span class="state-badge" id="stateBadge" data-state="waiting_target">En reposo</span>
+
+      <div id="compensationBanner" class="compensation-banner" hidden></div>
+
+      <h3>Historial de la sesión</h3>
+      <ul id="history" class="history"></ul>
+    </section>
+
+    <section class="panel video-panel">
+      <div class="video-wrapper">
+        <video id="video" playsinline muted></video>
+        <canvas id="overlay"></canvas>
+      </div>
+      <p class="hint">
+        Ubícate a una distancia donde se vea toda la extremidad en cámara, de perfil o de frente
+        según el ejercicio, con buena iluminación.
+      </p>
+    </section>
+  </main>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
